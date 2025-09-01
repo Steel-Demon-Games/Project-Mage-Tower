@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://fblwxpsarig7"]
+
+[node name="ArcaneMage" type="CharacterBody2D"]
