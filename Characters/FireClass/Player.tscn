@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://cg62ri5aibseh"]
+
+[ext_resource type="Texture2D" uid="uid://c8yiaowa46woh" path="res://Assets/Mobile - Final Fantasy 4_ The After Years - Temporary &amp; Non-Playable Characters - Black Mage.png" id="1_iiqhx"]
+[ext_resource type="Script" uid="uid://ccui4ee10bt5p" path="res://Characters/FireClass/player.gd" id="1_umk6v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umk6v"]
+atlas = ExtResource("1_iiqhx")
+region = Rect2(40, 58, 18, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mouuy"]
+atlas = ExtResource("1_iiqhx")
+region = Rect2(58, 58, 18, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kh33"]
+atlas = ExtResource("1_iiqhx")
+region = Rect2(76, 58, 18, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivu71"]
+atlas = ExtResource("1_iiqhx")
+region = Rect2(94, 58, 18, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w60yy"]
+atlas = ExtResource("1_iiqhx")
+region = Rect2(112, 58, 18, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwhm8"]
+atlas = ExtResource("1_iiqhx")
+region = Rect2(130, 58, 18, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhteu"]
+atlas = ExtResource("1_iiqhx")
+region = Rect2(148, 58, 18, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_megry"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umk6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mouuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kh33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivu71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w60yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwhm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhteu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iiqhx"]
+radius = 8.0
+
+[node name="FireMage" type="CharacterBody2D"]
+collision_mask = 3
+script = ExtResource("1_umk6v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_megry")
+frame_progress = 0.809558
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_iiqhx")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout_Fireball"]
